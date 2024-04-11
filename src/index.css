@@ -1,0 +1,23 @@
+body {
+    background-color: #318CE7 !important;
+}
+.header{
+    font-family: 'Open Sans', sans-serif; 
+}
+.container{
+    align-items: center;
+    justify-content: center;
+}
+.container-1{
+   display: flex;
+   flex-direction: column;
+   background-color: white;
+   border: 1px solid white;
+   padding: 50px;
+   align-items: center;
+   justify-content: center;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+}
