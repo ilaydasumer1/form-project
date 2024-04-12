@@ -2,22 +2,58 @@ body {
     background-color: #318CE7 !important;
 }
 .header{
-    font-family: 'Open Sans', sans-serif; 
+ color: #505050;
+ padding-bottom:50px;
 }
-.container{
+.icons{
+    display:flex;
+    flex-direction: row;
+    gap:10px;
     align-items: center;
     justify-content: center;
 }
-.container-1{
+.container{
+    display:flex;
+    flex-direction:column;
+}
+.form-div{
+   border: 1px solid #ffff;
+   border-radius: 15px;
+   padding:50px;
+   width:60%;
    display: flex;
    flex-direction: column;
    background-color: white;
    border: 1px solid white;
-   padding: 50px;
    align-items: center;
    justify-content: center;
 }
 .content{
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 2fr); 
+    column-gap: 30px;
+    row-gap: 35px;
 }
+.content input{
+    padding:8px;
+    padding-right: 30px;
+    border: 1px solid #B0B0B0 !important;
+    border-radius: 5px;
+}
+.content select{
+    padding:8px;
+    padding-right: 30px;
+    border: 1px solid #B0B0B0 !important;
+    border-radius: 5px;
+}
+.content-select{
+    color: #A0A0A0;
+}
+.content input::placeholder {
+    color: #A0A0A0; 
+  }
+  .btn-primary {
+    width: 150px; 
+    color: red;
+    margin:15px;
+  }
