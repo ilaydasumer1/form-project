@@ -1,8 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from "react";
-import { TiTick } from "react-icons/ti";
-import { IoMdText } from "react-icons/io";
-import { BsFillPersonFill } from "react-icons/bs";
 
 const App = () => {
   const [currentStep, setCurrentStep] = useState(1); 
@@ -180,11 +177,6 @@ const App = () => {
                 </button>
               </form>
             </div>
-          </div>
-          <div className="text">
-            <p>
-              Want to contact us? Call us on +91 934834328293, +91 8382913823
-            </p>
           </div>
         </div>
       );
