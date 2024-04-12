@@ -1,5 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from "react";
+import { TiTick } from "react-icons/ti";
+import { IoMdText } from "react-icons/io";
+import { BsFillPersonFill } from "react-icons/bs";
 
 const App = () => {
   const [currentStep, setCurrentStep] = useState(1); 
@@ -35,12 +38,18 @@ const App = () => {
   switch (currentStep) {
     case 1:
       return (
-        <div className="container">
-        <div className="icons">
-          <span>icon1</span>
-          <span>icon2</span>
-          <span>icon3</span>
-        </div>
+        <div className="containerr">
+          <div className="icons">
+            <span>
+              <TiTick className="icon" />
+            </span>
+            <span>
+              <IoMdText className="icon" />
+            </span>
+            <span>
+              <BsFillPersonFill className="icon" />
+            </span>
+          </div>
           <div className="form-div">
             <div>
               <h4 className="header">Tell Us About Your Requirements</h4>
@@ -88,11 +97,27 @@ const App = () => {
               </form>
             </div>
           </div>
+          <div className="text">
+            <p>
+              Want to contact us? Call us on +91 934834328293, +91 8382913823
+            </p>
+          </div>
         </div>
       );
     case 2:
       return (
-        <div className="container">
+        <div className="containerr">
+          <div className="icons">
+            <span>
+              <TiTick className="icon" />
+            </span>
+            <span>
+              <IoMdText className="icon" />
+            </span>
+            <span>
+              <BsFillPersonFill className="icon" />
+            </span>
+          </div>
           <div className="form-div">
             <div>
               <h4 className="header">Tell Us About Your Requirements</h4>
@@ -147,27 +172,19 @@ const App = () => {
                   onChange={handleChange}
                   placeholder="Budget"
                 />
-                <button
-                  onClick={prevStep}
-                  type="button"
-                  class="btn btn-primary"
-                  data-toggle="button"
-                  aria-pressed="false"
-                  autocomplete="off"
-                >
+                <button onClick={prevStep} type="button" class="btn btn-light">
                   Previous
                 </button>
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  data-toggle="button"
-                  aria-pressed="false"
-                  autocomplete="off"
-                >
+                <button type="button" class="btn btn-success">
                   Submit
                 </button>
               </form>
             </div>
+          </div>
+          <div className="text">
+            <p>
+              Want to contact us? Call us on +91 934834328293, +91 8382913823
+            </p>
           </div>
         </div>
       );

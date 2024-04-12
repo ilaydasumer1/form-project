@@ -5,22 +5,16 @@ body {
  color: #505050;
  padding-bottom:50px;
 }
-.icons{
-    display:flex;
-    flex-direction: row;
-    gap:10px;
-    align-items: center;
-    justify-content: center;
-}
-.container{
+.containerr{
     display:flex;
     flex-direction:column;
+    justify-content: center;
+    align-items: center;
 }
 .form-div{
    border: 1px solid #ffff;
    border-radius: 15px;
    padding:50px;
-   width:60%;
    display: flex;
    flex-direction: column;
    background-color: white;
@@ -40,20 +34,42 @@ body {
     border: 1px solid #B0B0B0 !important;
     border-radius: 5px;
 }
-.content select{
-    padding:8px;
+.content-select{
+    color: #A0A0A0;
+     padding:8px;
     padding-right: 30px;
     border: 1px solid #B0B0B0 !important;
     border-radius: 5px;
 }
-.content-select{
-    color: #A0A0A0;
-}
 .content input::placeholder {
     color: #A0A0A0; 
-  }
-  .btn-primary {
-    width: 150px; 
-    color: red;
-    margin:15px;
-  }
+}
+
+.icons{
+    padding: 20px;
+    display:flex;
+    flex-direction: row;
+    gap:30px;
+    align-items: center;
+    justify-content: center;
+    
+}
+.icons span{
+        color: white; /* Iconların rengini beyaz yapar */
+        border-radius: 100%;         /* Yuvarlak çerçeve yapar */
+        border: 1px solid white;
+        justify-content: center;
+        align-items: center; 
+        padding:10px;
+}
+.icon{
+    width:30px;
+    height:30px;
+}
+.text{
+    justify-content: center;
+    align-items: center;
+}
+.text p{
+    color:white;
+}
