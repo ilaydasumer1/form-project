@@ -4,6 +4,7 @@ import AdminDetail from "./AdminDetail/AdminDetail";
 import { TiTick } from 'react-icons/ti';
 import { IoMdText } from 'react-icons/io';
 import { BsFillPersonFill } from 'react-icons/bs';
+import axios from "axios";
 
 const App = () => {
   const [currentStep, setCurrentStep] = useState(1); 
@@ -17,7 +18,36 @@ const App = () => {
     typeOfProject: "",
     budget: "",
   });
-
+  const handleSubmitUser = async () => {
+    try {
+      const response = await axios.post('http://localhost:5000/api/users', {
+        firstname: formData.firstName,
+        lastname: formData.lastName,
+        username: formData.userName,
+        email: formData.email,
+      });
+      console.log(response.data);
+      nextStep(); // Başarılı ise sonraki adıma geç
+    } catch (error) {
+      console.error('User submission error:', error);
+    }
+  };
+  
+  // İkinci adım için handler
+  const handleSubmitProject = async () => {
+    try {
+      const response = await axios.post('http://localhost:5000/api/projects', {
+        youAre: formData.youare,
+        youHave: formData.youhave,
+        typeOfProject: formData.typeOfProject,
+        budget: formData.budget,
+      });
+      console.log(response.data);
+      // Burada başka bir adıma geçebilir veya kullanıcıya geri bildirim sağlayabilirsiniz.
+    } catch (error) {
+      console.error('Project submission error:', error);
+    }
+  };
   const nextStep = () => {
     setCurrentStep(currentStep + 1);
   };
@@ -86,7 +116,7 @@ const App = () => {
                   placeholder="Email Address"
                 />
                 <button
-                  onClick={nextStep}
+                  onClick={handleSubmitUser}
                   type="button"
                   class="btn btn-primary"
                   data-toggle="button"
@@ -124,62 +154,67 @@ const App = () => {
               <h4 className="header">Tell Us About Your Requirements</h4>
             </div>
             <div>
-              <form className="content" onSubmit={handleSubmit}>
-                <select
-                  className="content-select"
-                  name="youare"
-                  value={formData.youare}
-                  onChange={handleChange}
-                >
-                  <option value="">You are</option>
-                  <option value="digitalBranding">Software Developer</option>
-                  <option value="photography">Industrial engineer</option>
-                  <option value="photography">Professional Photographer</option>
-                  <option value="webDesign">Web Designer</option>
-                  <option value="webDesign">graphic artist</option>
-                  <option value="other">Other</option>
-                </select>
-                <select
-                  className="content-select"
-                  name="youhave"
-                  value={formData.youhave}
-                  onChange={handleChange}
-                >
-                  <option value="">You have</option>
-                  <option value="digitalBranding">Idea</option>
-                  <option value="photography">company</option>
-                  <option value="webDesign">budget</option>
-                  <option value="webDesign">worker</option>
-                  <option value="other">Other</option>
-                </select>
-                <select
-                  className="content-select"
-                  name="typeOfProject"
-                  value={formData.typeOfProject}
-                  onChange={handleChange}
-                >
-                  <option value="">Type of Project/Query</option>
-                  <option value="digitalBranding">Digital Branding</option>
-                  <option value="photography">Professional Photography</option>
-                  <option value="webDesign">Web Design</option>
-                  <option value="appDevelopment">Mobile App Development</option>
-                  <option value="digitalMarketing">Digital Marketing</option>
-                  <option value="other">Other</option>
-                </select>
-                <input
-                  name="budget"
-                  type="text"
-                  value={formData.budget}
-                  onChange={handleChange}
-                  placeholder="Budget"
-                />
-                <button onClick={prevStep} type="button" class="btn btn-light">
-                  Previous
-                </button>
-                <button type="button" class="btn btn-success">
-                  Submit
-                </button>
-              </form>
+            <form className="content" onSubmit={handleSubmitProject}>
+  <select
+    className="content-select"
+    name="youare"
+    value={formData.youare}
+    onChange={handleChange}
+  >
+    <option value="">You are...</option>
+    <option value="Software Developer">Software Developer</option>
+    <option value="Industrial Engineer">Industrial Engineer</option>
+    <option value="Professional Photographer">Professional Photographer</option>
+    <option value="Web Designer">Web Designer</option>
+    <option value="Graphic Artist">Graphic Artist</option>
+    <option value="Other">Other</option>
+  </select>
+
+  <select
+    className="content-select"
+    name="youhave"
+    value={formData.youhave}
+    onChange={handleChange}
+  >
+    <option value="">You have...</option>
+    <option value="Idea">Idea</option>
+    <option value="Company">Company</option>
+    <option value="Budget">Budget</option>
+    <option value="Worker">Worker</option>
+    <option value="Other">Other</option>
+  </select>
+
+  <select
+    className="content-select"
+    name="typeOfProject"
+    value={formData.typeOfProject}
+    onChange={handleChange}
+  >
+    <option value="">Type of Project/Query</option>
+    <option value="Digital Branding">Digital Branding</option>
+    <option value="Professional Photography">Professional Photography</option>
+    <option value="Web Design">Web Design</option>
+    <option value="Mobile App Development">Mobile App Development</option>
+    <option value="Digital Marketing">Digital Marketing</option>
+    <option value="Other">Other</option>
+  </select>
+
+  <input
+    name="budget"
+    type="text"
+    value={formData.budget}
+    onChange={handleChange}
+    placeholder="Budget"
+  />
+
+  <button type="button" className="btn btn-light" onClick={prevStep}>
+    Previous
+  </button>
+  <button type="submit" className="btn btn-success">
+    Submit
+  </button>
+</form>
+
             </div>
           </div>
           <AdminDetail/>

@@ -66,17 +66,19 @@ function AdminDetail() {
           <table className="table">
             <thead>
               <tr>
-                <th>Type</th>
-                <th>Description</th>
+                <th>You Are</th>
+                <th>You Have</th>
+                <th>Type of Project</th>
                 <th>Budget</th>
               </tr>
             </thead>
             <tbody>
               {projects.map((project) => (
                 <tr key={project._id}>
-                  <td>{project.type}</td>
-                  <td>{project.description}</td>
-                  <td>{project.budget}</td>
+                  <td>{project.youAre}</td>
+                  <td>{project.youHave}</td>
+                  <td>{project.typeOfProject}</td>
+                  <td>{project.budget || 'Not Specified'}</td>
                 </tr>
               ))}
             </tbody>
