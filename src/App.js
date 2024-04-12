@@ -1,6 +1,9 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from "react";
 import AdminDetail from "./AdminDetail/AdminDetail";
+import { TiTick } from 'react-icons/ti';
+import { IoMdText } from 'react-icons/io';
+import { BsFillPersonFill } from 'react-icons/bs';
 
 const App = () => {
   const [currentStep, setCurrentStep] = useState(1); 
