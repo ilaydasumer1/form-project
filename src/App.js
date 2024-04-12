@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from "react";
+import AdminDetail from "./AdminDetail/AdminDetail";
 
 const App = () => {
   const [currentStep, setCurrentStep] = useState(1); 
@@ -178,6 +179,7 @@ const App = () => {
               </form>
             </div>
           </div>
+          <AdminDetail/>
         </div>
       );
     default:
