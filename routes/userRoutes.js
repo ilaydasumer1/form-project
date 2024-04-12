@@ -12,7 +12,6 @@ router.post('/users', async (req, res) => {
       lastname: req.body.lastname,
       username: req.body.username,
       email: req.body.email,
-      address: req.body.address
     });
     const savedUser = await newUser.save();
     res.status(201).json(savedUser);

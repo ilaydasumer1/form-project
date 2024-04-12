@@ -1,13 +1,17 @@
 const express = require('express');
 const Project = require('../models/Project');
-
 const router = express.Router();
 
 // Proje oluşturma endpoint'i
 router.post('/projects', async (req, res) => {
   try {
-    const project = new Project(req.body);
-    const savedProject = await project.save();
+    const newProject = new Project({
+      youAre: req.body.youAre,
+      youHave: req.body.youHave,
+      typeOfProject: req.body.typeOfProject,
+      budget: req.body.budget
+    });
+    const savedProject = await newProject.save();
     res.status(201).json(savedProject);
   } catch (error) {
     res.status(400).json({ message: error.message });
